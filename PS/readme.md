@@ -49,7 +49,7 @@ Before running this script, ensure you have the following:
 
 ## How to Use
 
-1.  **Save the Script**: Save the script from the Canvas as a `.ps1` file (e.g., `Deploy-ADInAzure.ps1`).
+1.  **Save the Script**: Save/Clone the script from the github repo as a `.ps1` file (e.g., `Deploy-ADInAzure.ps1`).
 
 2.  **Open PowerShell**: Navigate to the directory where you saved the file.
 
