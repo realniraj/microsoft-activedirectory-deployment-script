@@ -10,7 +10,8 @@ Whether you prefer native PowerShell scripting, the declarative syntax of HashiC
 
 Each implementation in this repository will provision the same core architecture, ensuring a consistent end-state regardless of the tool you choose.
 
-Azure Cloud+-----------------------------------------------------------------+|                                                                 ||   Resource Group: [Your-RG-Name]                                ||   +-----------------------------------------------------------+ ||   |                                                           | ||   |   Virtual Network: [Your-VNet-Name] (10.0.0.0/16)         | ||   |   DNS Servers: 10.0.1.4, 10.0.2.4                         | ||   |   +-----------------------+ +-------------------------+   | ||   |   | Subnet 1 (10.0.1.0/24)| | Subnet 2 (10.0.2.0/24)  |   | ||   |   |                       | |                         |   | ||   |   |   [ VM: ad-dc1 ]      | |   [ VM: ad-dc2 ]        |   | ||   |   |   Private IP:         | |   Private IP:           |   | ||   |   |   10.0.1.4            | |   10.0.2.4              |   | ||   |   |   (Primary DC)        | |   (Secondary DC)        |   | ||   |   +-----------------------+ +-------------------------+   | ||   |                                                           | ||   +-----------------------------------------------------------+ ||                                                                 |+-----------------------------------------------------------------+
+![Architecture](architecture.png)
+
 ---
 
 ## Available Implementations
