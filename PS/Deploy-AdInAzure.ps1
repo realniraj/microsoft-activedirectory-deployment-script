@@ -165,9 +165,9 @@ function New-AzFaultTolerantAD {
                 Restart-AzVM -ResourceGroupName $ResourceGroupName -Name $dc1Name
             }
 
-            Write-Verbose "Waiting for $dc1Name to reboot and stabilize (approx. 2 minutes)..."
+            Write-Verbose "Waiting for $dc1Name to reboot and stabilize (approx. 4 minutes)..."
             Write-Progress -Activity "Configuring Domain Controllers" -Status "Waiting for $dc1Name to reboot and stabilize..." -PercentComplete 80
-            Start-Sleep -Seconds 120
+            Start-Sleep -Seconds 240
 
             if ($PSCmdlet.ShouldProcess($dc2Name, "Configure as Additional Domain Controller")) {
                 Write-Progress -Activity "Configuring Domain Controllers" -Status "Installing AD role on $dc2Name..." -PercentComplete 90
