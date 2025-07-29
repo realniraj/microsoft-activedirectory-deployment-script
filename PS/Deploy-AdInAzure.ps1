@@ -47,6 +47,13 @@ Date: 2025-07-28
 Version: 2.6
 - Updated VNet DNS configuration to use the more reliable DhcpOptions property.
 #>
+param(
+    [string]$ResourceGroupName = 'ad-lab-rg',
+    [string]$Location = 'East US',
+    [string]$DomainName = 'mylab.local',
+    [System.Management.Automation.PSCredential]$Credential = $null,
+    [string]$VmSize = 'Standard_D2s_v5'
+)
 function New-AzFaultTolerantAD {
     [CmdletBinding(SupportsShouldProcess = $true, HelpUri = "https://docs.microsoft.com/powershell/module/az.resources/new-azfaulttolerantad",DefaultParameterSetName = "Default")]
     [OutputType([PSCustomObject])]
@@ -242,21 +249,18 @@ function New-AzFaultTolerantAD {
 
 Write-Host "`n--- Starting Active Directory Deployment ---" -ForegroundColor Magenta
 
-# Define the parameters for the deployment
-$params = @{
-    ResourceGroupName = 'ad-lab-rg'
-    Location          = 'East US'
-    DomainName        = 'mylab.local'
-    Credential        = Get-Credential -UserName 'azureadmin' -Message 'Enter password for VM admin and AD Safe Mode'
+# Prompt for credential if not provided
+if ($null -eq $Credential) {
+    $Credential = Get-Credential -UserName 'azureadmin' -Message 'Enter password for VM admin and AD Safe Mode'
 }
 
 # Validate that the user provided credentials before proceeding.
-if ($null -eq $params.Credential) {
+if ($null -eq $Credential) {
     Write-Error "Credential prompt was canceled. Halting script."
 }
 else {
     # Call the main function with parameters and verbose output
-    $deploymentResult = New-AzFaultTolerantAD @params -Verbose
+    $deploymentResult = New-AzFaultTolerantAD -ResourceGroupName $ResourceGroupName -Location $Location -DomainName $DomainName -Credential $Credential -VmSize $VmSize -Verbose
 
     # Print the final output object if the deployment was successful
     if ($null -ne $deploymentResult) {

@@ -78,6 +78,17 @@ The `New-AzFaultTolerantAD` function accepts the following parameters:
 | `Credential`        | A `PSCredential` object for the local VM admin. The script prompts for this if not provided.              | *(Prompt)* | Yes      |
 | `VmSize`            | The Azure VM size for the domain controllers.                                                           | `Standard_D2s_v5` | No       |
 
+## Customizing Your Deployment
+
+While the script runs out-of-the-box with sensible defaults, you can easily customize it using parameters.
+
+```powershell
+# You'll be prompted for the password`
+.\Deploy-ADInAzure.ps1 -ResourceGroupName "Prod-AD-RG" -Location "West Europe" -DomainName "mycompany.corp" -VmSize "Standard_D4s_v5" -Verbose
+```
+
+Using the `-Verbose` switch is highly recommended to see detailed step-by-step actions as the script runs.
+
 ---
 
 ## Post-Deployment
