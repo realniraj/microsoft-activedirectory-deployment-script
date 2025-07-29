@@ -100,4 +100,4 @@ Once the script completes, it will output the public IP addresses of the two dom
 
 -   **Null-Valued Expression Error**: This typically happens if the `Get-Credential` prompt is canceled. The script now includes a check to prevent this, but if it occurs, ensure you are providing a password at the prompt.
 
--   **Timeouts**: The script includes a 5-minute `Start-Sleep` to allow the first domain controller to reboot and stabilize. On rare occasions (depending on Azure's load), this might not be enough time. If the DC2 configuration fails because it can't contact DC1, you may need to increase this sleep duration.
+-   **Timeouts**: The script includes a 2-minute `Start-Sleep` to allow the first domain controller to reboot and stabilize. On rare occasions (depending on Azure's load), this might not be enough time. If the DC2 configuration fails because it can't contact DC1, you may need to increase this sleep duration.
