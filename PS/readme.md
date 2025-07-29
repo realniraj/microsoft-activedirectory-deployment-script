@@ -30,7 +30,7 @@ The script provisions the following Azure resources:
 -   Two **Public IP Addresses** (one for each VM) for initial access.
 -   Two **Network Interfaces** (one for each VM).
 
-![A simple diagram showing a VNet with two subnets. Each subnet contains a Domain Controller VM.](https://i.imgur.com/8YvL1bO.png)
+![A simple diagram showing a VNet with two subnets. Each subnet contains a Domain Controller VM.](architecture.png)
 
 ---
 
