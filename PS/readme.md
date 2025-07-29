@@ -62,6 +62,15 @@ Before running this script, ensure you have the following:
 
     A credential window will pop up. Enter a strong password to be used for the deployment.
 
+    While the script runs out-of-the-box with sensible defaults, you can easily customize it using parameters.
+
+    ```powershell
+    # You'll be prompted for the password`
+    .\Deploy-ADInAzure.ps1 -ResourceGroupName "Prod-AD-RG" -Location "West Europe" -DomainName "mycompany.corp" -VmSize "Standard_D4s_v5" -Verbose
+    ```
+
+    Using the `-Verbose` switch is highly recommended to see detailed step-by-step actions as the script runs.
+
 4.  **Monitor Deployment**: The script will provide verbose output and progress bars as it creates the resources and configures the domain controllers. The entire process can take 20-30 minutes.
 
 ---
